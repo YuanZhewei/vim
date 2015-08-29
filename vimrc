@@ -168,9 +168,26 @@ let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v 
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+
 let $FENCVIEW_TELLENC="~/.vim/bundle/FencView.vim/tellfenc/tellenc"
 let g:fencview_autodetect=1
 
+autocmd BufWritePre * :%s/\s\+$//e
+set viminfo='100,\"2500,:200,%,n~/.viminfo
+
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions=1
+let g:go_highlight_methods=1
+let g:go_highlight_structs=1
+let g:go_highlight_operators=1
+let g:go_highlight_build_constraints=1
+
+let g:syntastic_go_checkers=['go', 'golint', 'errcheck']
+au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
+au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
+au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -197,10 +214,12 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+let g:Dont_Jump_Automatically = 1
 nnoremap <leader>tl :Tlist<CR>
 nnoremap <leader>tt :NERDTreeToggle<CR>
-map <C-J> :bnext<cr>
-map <C-K> :bprevious<cr>
+map <C-L> :bnext<cr>
+map <C-H> :bprevious<cr>
 map <C-N> :cn<CR>
 map <C-P> :cp<CR>
-map <C-\>^] :GtagsCursor<CR>
+nnoremap <leader>gc :GtagsCursor<CR>
+nnoremap <leader>cc :cclose<CR>
