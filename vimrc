@@ -1,9 +1,6 @@
 runtime bundle/Pathogen.vim/autoload/pathogen.vim
 
 syntax enable
-set background=dark
-let g:solarized_termtrans=0
-color solarized
 
 set number
 set ruler
@@ -98,6 +95,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'Pathogen.vim'
 Plugin 'tpope/Vim-Fugitive'
 Plugin 'The-NERD-tree'
@@ -121,6 +119,10 @@ Plugin 'fatih/vim-go'
 call vundle#end()
 filetype plugin on
 filetype indent on
+
+set background=dark
+let g:solarized_termtrans=0
+color solarized
 
 let NERDShutUp=1
 let NERDTreeWinSize=25
