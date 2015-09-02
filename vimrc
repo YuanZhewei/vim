@@ -225,3 +225,4 @@ map <C-N> :cn<CR>
 map <C-P> :cp<CR>
 nnoremap <leader>gc :GtagsCursor<CR>
 nnoremap <leader>cc :cclose<CR>
+nnoremap <leader>nh :noh<CR>
