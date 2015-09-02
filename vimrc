@@ -164,6 +164,7 @@ let g:ycm_complete_in_strings=0
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_key_detailed_diagnostics='<leader>d'
 let g:ycm_goto_buffer_command='same-buffer'
+let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "let g:ycm_goto_buffer_command='new-tab'
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
 "let g:ycm_semantic_triggers.c = ['->', '.', ' ', '\t', '(', '[', '&']
