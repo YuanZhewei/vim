@@ -1,5 +1,7 @@
 runtime bundle/Pathogen.vim/autoload/pathogen.vim
 
+scriptencoding utf-8
+set encoding=utf-8
 syntax enable
 
 set number
@@ -80,7 +82,7 @@ set tags=./tags,tags
 set tags+=~/.vim/systags
 
 set cscopequickfix=c-,d-,e-,f-,g0,i-,s-,t-
-if (executable("gtags-cscope") && has("gtags-cscope"))
+if (executable("gtags-cscope"))
     set csprg=gtags-cscope
     let db = findfile("GTAGS", ".;")
     if (!empty(db))
@@ -108,6 +110,7 @@ Plugin 'SirVer/UltiSnips'
 Plugin 'honza/Vim-Snippets'
 Plugin 'Mizuchi/STL-Syntax'
 Plugin 'DoxygenToolkit.vim'
+Plugin 'DirDiff.vim'
 Plugin 'scrooloose/syntastic', {'name': 'Syntasic'}
 Plugin 'bling/vim-airline', {'name': 'Airline'}
 
@@ -188,9 +191,20 @@ let g:go_highlight_operators=1
 let g:go_highlight_build_constraints=1
 
 let g:syntastic_go_checkers=['go', 'golint', 'errcheck']
-au Filetype go nnoremap <leader>v :vsp <CR>:exe "GoDef" <CR>
-au Filetype go nnoremap <leader>s :sp <CR>:exe "GoDef"<CR>
-au Filetype go nnoremap <leader>t :tab split <CR>:exe "GoDef"<CR>
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -224,6 +238,12 @@ map <C-L> :bnext<cr>
 map <C-H> :bprevious<cr>
 map <C-N> :cn<CR>
 map <C-P> :cp<CR>
+map <C-A> <HOME>
+map <C-E> <END>
 nnoremap <leader>gc :GtagsCursor<CR>
 nnoremap <leader>cc :cclose<CR>
 nnoremap <leader>nh :noh<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
