@@ -24,7 +24,7 @@ set softtabstop=4
 set showmatch
 set incsearch
 set hlsearch
-set list
+set nolist
 set listchars=tab:\|_,trail:·
 set selectmode+=mouse
 set ttyfast
@@ -63,14 +63,16 @@ set wildignore=*.o,*.class,*.pyc
 map <leader>bd :bd<cr>
 map <leader>ba: bufdo bd<cr>
 
-if has("mac") || has("macunix")
+if has("mac") || has("macunix") || has("gui_macvim")
     set gfn=Source\ Code\ Pro:h15,Menlo:h15
+elseif has("gui_gtk2")
+    set guifont=Monaco\ for\ Powerline\ 15
 elseif has("win16") || has("win32")
-    set gfn=Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
+    set gfn=Source\ Code\ Pro:h15,Bitstream\ Vera\ Sans\ Mono:h15
 elseif has("linux")
-    set gfn=Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
+    set gfn=Source\ Code\ Pro:h15,Bitstream\ Vera\ Sans\ Mono:h15
 elseif has("unix")
-    set gfn=Monospace\ 11
+    set gfn=Monospace\ 15
 endif
 
 if has("gui_macvim")
@@ -85,6 +87,10 @@ set cscopequickfix=c-,d-,e-,f-,g0,i-,s-,t-
 if (executable("gtags-cscope"))
     set csprg=gtags-cscope
     let db = findfile("GTAGS", ".;")
+    let GtagsCscope_Auto_Load = 1        " Auto Loading
+    let CtagsCscope_Auto_Map = 1
+    let g:Gtags_Auto_Update = 1
+    let g:Gtags_No_Auto_Jump = 1
     if (!empty(db))
         cs add GTAGS
     endif
@@ -101,8 +107,9 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'Pathogen.vim'
 Plugin 'tpope/Vim-Fugitive'
 Plugin 'The-NERD-tree'
-Plugin 'taglist.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Valloric/YouCompleteMe'
+Bundle 'majutsushi/tagbar'
 Plugin 'A.vim'
 Plugin 'gtags.vim'
 Plugin 'mbbill/fencview', {'name': 'FencView.vim'}
@@ -113,7 +120,7 @@ Plugin 'DoxygenToolkit.vim'
 Plugin 'DirDiff.vim'
 Plugin 'scrooloose/syntastic', {'name': 'Syntasic'}
 Plugin 'bling/vim-airline', {'name': 'Airline'}
-
+Plugin 'derekwyatt/vim-scala'
 Plugin 'tpope/Vim-Markdown'
 Plugin 'tpope/vim-surround', {'name': 'Surround.vim'}
 Plugin 'Lokaltog/vim-easymotion', {'name': 'EasyMotion'}
@@ -124,6 +131,7 @@ filetype plugin on
 filetype indent on
 
 set background=dark
+let g:solarized_termcolors=16
 let g:solarized_termtrans=0
 color solarized
 
@@ -131,7 +139,6 @@ let NERDShutUp=1
 let NERDTreeWinSize=25
 
 set laststatus=2
-set guifont=Monaco\ for\ Powerline
 set t_co=256
 
 if !exists('g:airline_symbols')
@@ -168,9 +175,12 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_key_detailed_diagnostics='<leader>d'
 let g:ycm_goto_buffer_command='same-buffer'
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"let g:ycm_goto_buffer_command='new-tab'
+let g:ycm_goto_buffer_command='new-tab'
 let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
-"let g:ycm_semantic_triggers.c = ['->', '.', ' ', '\t', '(', '[', '&']
+let g:ycm_semantic_triggers = {
+\   'c': ['->', '.', ' ', '\t', '(', '[', '&', '*'],
+\   'cpp': ['->', '.', '::', ' ', '\t', '(', '[', '&', '*'],
+\   }
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 
@@ -232,7 +242,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 let g:Dont_Jump_Automatically = 1
-nnoremap <leader>tl :Tlist<CR>
+nnoremap <F8> :TagbarToggle<CR>
 nnoremap <leader>tt :NERDTreeToggle<CR>
 map <C-L> :bnext<cr>
 map <C-H> :bprevious<cr>
@@ -247,3 +257,4 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 
 nnoremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+
