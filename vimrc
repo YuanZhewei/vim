@@ -87,7 +87,6 @@ set cscopequickfix=c-,d-,e-,f-,g0,i-,s-,t-
 if (executable("gtags-cscope"))
     set csprg=gtags-cscope
     let db = findfile("GTAGS", ".;")
-    let GtagsCscope_Auto_Load = 1        " Auto Loading
     let CtagsCscope_Auto_Map = 1
     let g:Gtags_Auto_Update = 1
     let g:Gtags_No_Auto_Jump = 1
