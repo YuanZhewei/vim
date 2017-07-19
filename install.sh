@@ -1,13 +1,51 @@
-#/bin/sh
+#/bin/bash
 
+string="$(lsb_release -a 2>/dev/null |grep "Distributor ID")"
+RELEASE=$(echo $string | awk '{print $NF}')
+echo $RELEASE
 SOURCE_PATH=`pwd`
 
-ln -sf $SOURCE_PATH/vimrc ~/.vimrc
-mkdir -p ~/.vim/bundle
+install_package() {
+    if [ x"$RELEASE" = x"Ubuntu" ];
+    then
+        check_and_install_ubuntu $1
+    fi
+}
 
-git clone git@github.com:VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+check_and_install_ubuntu() {
+    flag=$(dpkg -l | grep $1)
+    if [ x"" = x"$flag" ];
+    then
+        apt-get install -y $1
+    fi
+}
 
-cp $SOURCE_PATH/self.vim ~/.vim/bundle/Airline/autoload/airline/themes
+install_package git
+install_package cmake
+install_package python-dev
+
+if [ -z "$(ls ~/.vimrc)" ];
+then
+    echo 1
+    ln -sf $SOURCE_PATH/vimrc ~/.vimrc
+fi
+
+if [ -z "$(ls ~/.vim/bundle)" ];
+then
+    echo 1
+    mkdir -p ~/.vim/bundle
+fi
+
+if [ -z "$(ls ~/.vim/bundle/Vundle.vim)" ];
+then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
+#vim +PluginInstall +qall
+
+if [ -z "$(ls ~/.vim/bundle/Airline/autoload/airline/themes)" ];
+then
+    cp $SOURCE_PATH/self.vim ~/.vim/bundle/Airline/autoload/airline/themes
+fi
+
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer --gocode-completer
