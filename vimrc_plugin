@@ -1,0 +1,29 @@
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Pathogen.vim'
+Plugin 'tpope/Vim-Fugitive'
+Plugin 'The-NERD-tree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Valloric/YouCompleteMe'
+Bundle 'majutsushi/tagbar'
+Plugin 'A.vim'
+Plugin 'gtags.vim'
+Plugin 'mbbill/fencview', {'name': 'FencView.vim'}
+Plugin 'SirVer/UltiSnips'
+Plugin 'honza/Vim-Snippets'
+Plugin 'Mizuchi/STL-Syntax'
+Plugin 'DoxygenToolkit.vim'
+Plugin 'DirDiff.vim'
+Plugin 'scrooloose/syntastic', {'name': 'Syntasic'}
+Plugin 'bling/vim-airline', {'name': 'Airline'}
+Plugin 'derekwyatt/vim-scala'
+Plugin 'tpope/Vim-Markdown'
+Plugin 'tpope/vim-surround', {'name': 'Surround.vim'}
+Plugin 'Lokaltog/vim-easymotion', {'name': 'EasyMotion'}
+Plugin 'kien/rainbow_parentheses.vim', {'name': 'RainbowParentheses'}
+Plugin 'fatih/vim-go'
+call vundle#end()
