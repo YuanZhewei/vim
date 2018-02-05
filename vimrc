@@ -64,15 +64,15 @@ map <leader>bd :bd<cr>
 map <leader>ba: bufdo bd<cr>
 
 if has("mac") || has("macunix") || has("gui_macvim")
-    set gfn=Source\ Code\ Pro:h15,Menlo:h15
+    set gfn=Source\ Code\ Pro:h25,Menlo:h25
 elseif has("gui_gtk2")
-    set guifont=Monaco\ for\ Powerline\ 15
+    set guifont=Monaco\ for\ Powerline\ 25
 elseif has("win16") || has("win32")
-    set gfn=Source\ Code\ Pro:h15,Bitstream\ Vera\ Sans\ Mono:h15
+    set gfn=Source\ Code\ Pro:h25,Bitstream\ Vera\ Sans\ Mono:h25
 elseif has("linux")
-    set gfn=Source\ Code\ Pro:h15,Bitstream\ Vera\ Sans\ Mono:h15
+    set gfn=Source\ Code\ Pro:h25,Bitstream\ Vera\ Sans\ Mono:h25
 elseif has("unix")
-    set gfn=Monospace\ 15
+    set gfn=Monospace\ 25
 endif
 
 if has("gui_macvim")
@@ -167,6 +167,8 @@ let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
 
+set completeopt=menu,menuone
+let g:ycm_add_preview_to_completeopt=0
 let g:ycm_error_symbol='>>'
 let g:ycm_warning_symbol='>'
 let g:ycm_complete_in_strings=0
