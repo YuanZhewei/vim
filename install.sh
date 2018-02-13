@@ -33,6 +33,12 @@ check_and_install_ubuntu() {
 remove_imap() {
     sed $SED_REPLACE_FLAG 's/^imap/"imap/g' $1
 }
+
+replace_gtags() {
+    cp -f gtags-cscope.vim ~/.vim/bundle/gtags.vim/plugin/
+    cp -f gtags.vim ~/.vim/bundle/gtags.vim/plugin/
+}
+
 install_package git
 install_package cmake
 install_package python-dev
@@ -53,10 +59,14 @@ then
 fi
 
 ln -sf $SOURCE_PATH/vimrc_plugin ~/.vimrc
+
 vim +PluginInstall +qall
+
 remove_imap ~/.vim/bundle/A.vim/plugin/a.vim
+replace_gtags
 
 ln -sf $SOURCE_PATH/vimrc ~/.vimrc
+
 if [ ! -f " ~/.vim/bundle/Airline/autoload/airline/themes" ];
 then
     cp $SOURCE_PATH/self.vim ~/.vim/bundle/Airline/autoload/airline/themes
