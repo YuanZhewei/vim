@@ -7,13 +7,13 @@ echo $RELEASE
 SOURCE_PATH=`pwd`
 SED_REPLACE_FLAG="-i"
 
-if [ x"OS" = x"Darwin" ];
+if [ x"$OS" = x"Darwin" ];
 then
     SED_REPLACE_FLAG="-ig"
 fi
 
 install_package() {
-    if [ x"OS" = x"Darwin" ];
+    if [ x"$OS" = x"Darwin" ];
     then
         check_and_install_mac $1
     elif [ x"$RELEASE" = x"Ubuntu" ];
@@ -52,9 +52,11 @@ then
     git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
+ln -sf $SOURCE_PATH/vimrc_plugin ~/.vimrc
 vim +PluginInstall +qall
 remove_imap ~/.vim/bundle/A.vim/plugin/a.vim
 
+ln -sf $SOURCE_PATH/vimrc ~/.vimrc
 if [ ! -f " ~/.vim/bundle/Airline/autoload/airline/themes" ];
 then
     cp $SOURCE_PATH/self.vim ~/.vim/bundle/Airline/autoload/airline/themes
