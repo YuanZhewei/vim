@@ -8,7 +8,6 @@ Plugin 'Pathogen.vim'
 Plugin 'tpope/Vim-Fugitive'
 Plugin 'The-NERD-tree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Valloric/YouCompleteMe'
 Bundle 'majutsushi/tagbar'
 Plugin 'A.vim'
 Plugin 'gtags.vim'
@@ -26,4 +25,5 @@ Plugin 'tpope/vim-surround', {'name': 'Surround.vim'}
 Plugin 'Lokaltog/vim-easymotion', {'name': 'EasyMotion'}
 Plugin 'kien/rainbow_parentheses.vim', {'name': 'RainbowParentheses'}
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()

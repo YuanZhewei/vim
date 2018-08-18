@@ -39,6 +39,7 @@ replace_gtags() {
     cp -f gtags.vim ~/.vim/bundle/gtags.vim/plugin/
 }
 
+install_package ctags
 install_package git
 install_package cmake
 install_package python-dev
