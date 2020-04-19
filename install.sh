@@ -24,6 +24,13 @@ install_package() {
     fi
 }
 
+install_fonts() {
+    cd /tmp
+    git clone https://github.com/powerline/fonts.git --depth=1
+    cd fonts
+    sh install.sh
+}
+
 check_and_install_mac() {
     brew install $1
 }
@@ -45,6 +52,7 @@ install_package ctags
 install_package git
 install_package cmake
 install_package python-dev
+install_package python3-dev
 
 if [ ! -f "~/.vimrc" ];
 then
