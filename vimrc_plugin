@@ -24,6 +24,5 @@ Plugin 'tpope/Vim-Markdown'
 Plugin 'tpope/vim-surround', {'name': 'Surround.vim'}
 Plugin 'Lokaltog/vim-easymotion', {'name': 'EasyMotion'}
 Plugin 'kien/rainbow_parentheses.vim', {'name': 'RainbowParentheses'}
-Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
