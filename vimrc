@@ -112,7 +112,6 @@ Bundle 'majutsushi/tagbar'
 Plugin 'A.vim'
 Plugin 'gtags.vim'
 Plugin 'mbbill/fencview', {'name': 'FencView.vim'}
-Plugin 'SirVer/UltiSnips'
 Plugin 'honza/Vim-Snippets'
 Plugin 'Mizuchi/STL-Syntax'
 Plugin 'DoxygenToolkit.vim'
@@ -165,27 +164,6 @@ let Tlist_File_Fold_Auto_Close=1
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Use_Right_Window=1
-
-set completeopt=menu,menuone
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_error_symbol='>>'
-let g:ycm_warning_symbol='>'
-let g:ycm_complete_in_strings=0
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_key_detailed_diagnostics='<leader>d'
-let g:ycm_goto_buffer_command='same-buffer'
-let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_goto_buffer_command='new-tab'
-let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
-let g:ycm_semantic_triggers = {
-\   'c': ['->', '.', ' ', '\t', '(', '[', '&', '*'],
-\   'cpp': ['->', '.', '::', ' ', '\t', '(', '[', '&', '*'],
-\   }
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-
-
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
 
 let $FENCVIEW_TELLENC="~/.vim/bundle/FencView.vim/tellfenc/tellenc"
 let g:fencview_autodetect=1

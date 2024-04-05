@@ -12,7 +12,6 @@ Bundle 'majutsushi/tagbar'
 Plugin 'A.vim'
 Plugin 'gtags.vim'
 Plugin 'mbbill/fencview', {'name': 'FencView.vim'}
-Plugin 'SirVer/UltiSnips'
 Plugin 'honza/Vim-Snippets'
 Plugin 'Mizuchi/STL-Syntax'
 Plugin 'DoxygenToolkit.vim'
@@ -24,5 +23,4 @@ Plugin 'tpope/Vim-Markdown'
 Plugin 'tpope/vim-surround', {'name': 'Surround.vim'}
 Plugin 'Lokaltog/vim-easymotion', {'name': 'EasyMotion'}
 Plugin 'kien/rainbow_parentheses.vim', {'name': 'RainbowParentheses'}
-Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
