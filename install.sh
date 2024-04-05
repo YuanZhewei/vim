@@ -83,12 +83,3 @@ then
     cp $SOURCE_PATH/self.vim ~/.vim/bundle/Airline/autoload/airline/themes
 fi
 
-GOCODE_FLAG=
-
-if [ ! -z $GOVERION ];
-then
-    GOCODE_FLAG='--gocode-completer'
-fi
-
-cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer $GOCODE_FLAG
